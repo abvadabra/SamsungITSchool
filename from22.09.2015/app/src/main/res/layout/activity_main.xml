@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/graphic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/first"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <EditText
+            android:id="@+id/graphicinput"
+            android:layout_below="@id/graphic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/resultview"
+            android:layout_below="@id/graphic"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/solveButton"
+            android:layout_below="@+id/resultview"
+            android:text="@string/solve_button"
+            android:onClick="solve"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/secondgraphic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/second"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent >
+        <EditText
+            android:id="@+id/secondGraphicinput"
+            android:layout_below="@id/secondgraphic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/secondResultview"
+            android:layout_below="@id/secondgraphic"
+            android:layout_width="100dp"
+            android:layout_height="50dp" />
+        <Button
+            android:id="@+id/secondSolveButton"
+            android:layout_below="@+id/secondResultview"
+            android:text="@string/solve_button"
+            android:onClick="solve"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
+    </RelativeLayout>
+</LinearLayout>
