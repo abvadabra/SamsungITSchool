@@ -30,11 +30,11 @@ public class MainActivity extends ActionBarActivity {
         if(amount < 0 || amount > 130) return;
         String result = "";
         if((amount % 10) == 1){
-            result = "Вам " + amount + " год";
+            result = "Р’Р°Рј " + amount + " РіРѕРґ";
         } else if((amount % 10) == 2 || (amount % 10) == 3 || (amount % 10) == 4){
-            result = "Вам " + amount + " года";
+            result = "Р’Р°Рј " + amount + " РіРѕРґР°";
         } else {
-            result = "Вам " + amount + " лет";
+            result = "Р’Р°Рј " + amount + " Р»РµС‚";
         }
         TextView resultView = (TextView) findViewById(R.id.result);
         resultView.setText(result);
