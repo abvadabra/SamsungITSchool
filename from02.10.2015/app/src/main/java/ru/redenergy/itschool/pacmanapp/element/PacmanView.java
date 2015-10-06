@@ -18,8 +18,8 @@ public class PacmanView extends View {
     private boolean initialized = false;
     private Pacman[] pacmans = new Pacman[10];
 
-    private float height;
-    private float width;
+    private float height = 500;
+    private float width = 500;
 
     public PacmanView(Context context) {
         super(context);
@@ -37,8 +37,10 @@ public class PacmanView extends View {
     }
 
     private void initPacmans(){
+        float onePacmanWidth = width / pacmans.length;
+        float onePacmanheight = height / pacmans.length;
         for(int i = 0; i < pacmans.length; i++) {
-            pacmans[i] = new Pacman(new PointF(width / pacmans.length * i, height / pacmans.length * i), 60);
+            pacmans[i] = new Pacman(new PointF(onePacmanWidth * i + onePacmanWidth, onePacmanheight * i + onePacmanheight), 60);
         }
         Log.i("PACMAN", "Initialized");
     }
@@ -61,7 +63,14 @@ public class PacmanView extends View {
             initialized = true;
         }
         for(int i = 0; i < pacmans.length; i++) pacmans[i].setRotation(pacmans[i].getRotation() + (int)(Math.random() * 2));
-        for(int i = 0; i < pacmans.length; i++) pacmans[i].move(10);
+        for(int i = 0; i < pacmans.length; i++) {
+            Pacman pacman = pacmans[i];
+            if(pacman.getPos().x > width - 10 || pacman.getPos().x < 0 + 10 || pacman.getPos().y > height - 10 || pacman.getPos().y < 0 + 10){
+                pacman.setRotation(pacman.getRotation() + 180);
+            }
+            pacman.move(10);
+
+        }
         invalidate();
     }
 
