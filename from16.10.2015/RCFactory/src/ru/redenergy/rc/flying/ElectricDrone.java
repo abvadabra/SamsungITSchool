@@ -6,11 +6,20 @@ import ru.redenergy.rc.parts.Battery;
 
 public abstract class ElectricDrone extends Drone {
 	
-	protected Battery battery;
-	protected float energyConsumption;
+	protected final Battery battery;
+	protected float energyConsumption; //per move meter
 	
-	public ElectricDrone(Position initialPos) {
+	public ElectricDrone(Battery battery, Position initialPos) {
 		super(initialPos);
+		this.battery = battery;
+	}
+	
+	@Override
+	public void moveTo(Position pos) {
+		double moveEnergy = this.getPosition().distance(pos) * getEnergyConsumption();
+		if(battery.consumeEnergy((float)moveEnergy)){
+			super.moveTo(pos);
+		}
 	}
 	
 	public Battery getBattery(){

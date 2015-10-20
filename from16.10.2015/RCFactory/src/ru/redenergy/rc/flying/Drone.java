@@ -1,5 +1,6 @@
 package ru.redenergy.rc.flying;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,7 +11,7 @@ import ru.redenergy.rc.flying.parts.Rotor;
 public abstract class Drone extends RemoteControlableDevice {
 	
 	protected float flyingSpeed;
-	protected List<Rotor> rotors;
+	protected List<Rotor> rotors = new ArrayList<Rotor>();
 
 	public Drone(Position initialPos) {
 		super(initialPos);

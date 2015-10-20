@@ -2,9 +2,16 @@ package ru.redenergy.rc.parts;
 
 public class Battery {
 	protected float energyAmount;
+	protected final float maxEnergy;
+	protected boolean infinity = false;
 	
 	public Battery(float energyAmount){
+		this.maxEnergy = energyAmount;
 		this.energyAmount = energyAmount;
+	}
+	
+	public void setInfinity(boolean infinity){
+		this.infinity = infinity;
 	}
 	
 	public void chargeEnergy(float amount ){
@@ -15,6 +22,10 @@ public class Battery {
 		return energyAmount >= amount;
 	}
 	
+	public float getMaxEnergy(){
+		return maxEnergy;
+	}
+
 	public boolean isEmpty(){
 		return energyAmount <= 0;
 	}
@@ -28,6 +39,6 @@ public class Battery {
 		if(available){
 			energyAmount -= amount;
 		}
-		return available;
+		return available || infinity;
 	}
 }

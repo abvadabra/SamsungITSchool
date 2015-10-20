@@ -29,5 +29,5 @@ public abstract class RemoteControlableDevice {
 		return position;
 	}
 	
-	public abstract String getLabel();
+	public abstract String getModel();
 }

@@ -23,4 +23,15 @@ public class Position {
 	public int getZ(){
 		return z;
 	}
+	
+	public double distance(Position pos){
+		return Math.sqrt(Math.pow(pos.x - this.x, 2) + Math.pow(pos.y - this.y, 2) + Math.pow(pos.z - this.z, 2));
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%d, %d, %d", this.x, this.y, this.z);
+	}
+	
+	
 }
